@@ -12,7 +12,7 @@ const infoPlayers = [
 // const apiURL = "https://gragos-api.vercel.app/api/rank?nick=Linguiça%20Games&tag=br12";
 
 async function carregarRank() {
-    const container = document.getElementById('container-dos-cards');
+    const container = document.getElementById('container-cards');
     // container.innerHTML = '<p class="text-white text-center animate-pulse">Buscando dados na Riot...</p>';
     // const playersReady = [];
     
@@ -22,7 +22,7 @@ async function carregarRank() {
             const dadosCompletos = await resposta.json();
 
             const id = dadosCompletos.iconeId;
-            const urlImage = "https://ddragon.leagueoflegends.com/cdn/14.5.1/img/profileicon/" + id + ".png";
+            const urlImage = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/profileicon/" + id + ".png";
 
             const elos = dadosCompletos.elos;
             const soloQ = elos.find(fila => fila.queueType === "RANKED_SOLO_5x5");
@@ -48,7 +48,7 @@ async function carregarRank() {
                 pdlFlex = flex.leaguePoints;
                 rankFlex = flex.rank;
             }
-
+            
             const rankImages = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/${rankName.toLowerCase()}.png`;
             const rankImagesFlex = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/${rankNameFlex.toLowerCase()}.png`;
 
@@ -65,7 +65,7 @@ async function carregarRank() {
                                 <p class="flex-auto text-[#98E8EE] leading-none">${nomeReal}</p>
                                 <div class="m-4 text-sm text-center">
                                     <p class="bg-[#00C5CD]/10 backdrop-blur-md text-xs mb-2 w-38">Solo/Duo ${rankName} ${rank}</p>
-                                    <p class="bg-[#00C5CD]/10 backdrop-blur-md text-xs">FLEX ${rankName} ${rank}</p>
+                                    <p class="bg-[#00C5CD]/10 backdrop-blur-md text-xs">FLEX ${rankNameFlex} ${rank}</p>
                                 </div>
                             </div>
                                 
