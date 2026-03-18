@@ -35,11 +35,12 @@ function colorScore(points){
 async function carregarRank() {
     const container = document.getElementById('container-cards');
 
-    container.innerHTML = '<p class="text-white text-center animate-pulse">Carregando...</p>';
     // const playersReady = [];
     
     for(t = 0; t < infoPlayers.length; t++){
         try {
+            container.innerHTML = '<p class="text-white text-center animate-pulse">Carregando...</p>';
+            
             const resposta = await fetch(infoPlayers[t]);
             const dadosCompletos = await resposta.json();
             const responseAPI = await fetch(infoPlayers[t]);
