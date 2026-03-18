@@ -57,41 +57,39 @@ async function carregarRank() {
 
             console.log(rankName)
             container.innerHTML += `
-                    <div class=" backdrop-blur-md p-6 border-2 border-[#8FE3EC] w-full flex items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <img src="${urlImage}" alt="Logo do Jogador" class="w-24 h-24 object-cover">
-                            <!--<div class="fixed inset-0 -z-10 overflow-hidden blur-[4px] bg-[#000000]/80 rounded-[50px]">
-                                <img src="${urlImage}" class="fixed inset-0 -z-10 w-full h-full object-cover opacity-30" alt="background">
-                            </div>--!>
-                            <div class="flex flex-col justify-center">
-                                <!-- <p class="text-[#0d0d0d] font-bold text-xl leading-none mb-1">#2</p> --!>
-                                <p class="flex-auto text-[#98E8EE] leading-none">${nomeReal}</p>
-                                <div class="m-4 text-sm text-center">
-                                    <p class="bg-[#00C5CD]/10 backdrop-blur-md text-xs mb-2 w-38">Solo/Duo ${rankName} ${rank}</p>
-                                    <p class="bg-[#00C5CD]/10 backdrop-blur-md text-xs">FLEX ${rankNameFlex} ${rank}</p>
-                                </div>
-                            </div>
-                                
-                            </div>
+                <div class="backdrop-blur-md p-4 md:p-6 border-2 border-[#8FE3EC] w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+                    
+                    <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                        <img src="${urlImage}" alt="Logo do Jogador" class="w-20 h-20 md:w-24 md:h-24 object-cover border border-[#8FE3EC]/30">
+                        
+                        <div class="flex flex-col justify-center">
+                            <p class="text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">${nomeReal}</p>
                             
-                        <div class="flex flex-row items-center gap-8">
-                                
-                            <div class="flex flex-col items-center text-sky-950 text-white">
-                                <p class=" font-semibold mb-1">SOLO/DUO</p>
-                                <img src="${rankImages}" alt="rank" class="w-[80px]">
-                                <p class="font-bold mt-1">${pdl} PDL</p>
+                            <div class="mt-2 text-xs flex flex-col gap-1 items-center md:items-start">
+                                <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Solo/Duo: ${rankName} ${rank}</p>
+                                <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Flex: ${rankNameFlex} ${rank}</p>
                             </div>
-                                
-                            <div class="flex flex-col items-center text-sky-950 text-white">
-                                <p class="text-sm font-semibold mb-1">FLEX</p>
-                                <img src="${rankImagesFlex}" alt="rank" class="w-[80px]">
-                                <p class="font-bold mt-1">${pdlFlex} PDL</p>
-                            </div>
+                        </div>
+                    </div>
 
+                    <div class="flex flex-row items-center justify-around md:justify-end gap-6 md:gap-8 w-full md:w-auto border-t border-[#8FE3EC]/20 pt-4 md:pt-0 md:border-t-0">
+                            
+                        <div class="flex flex-col items-center text-white">
+                            <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">SOLO/DUO</p>
+                            <img src="${rankImages}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
+                            <p class="font-bold mt-1 text-sm md:text-base">${pdl} <span class="text-[10px] font-normal">PDL</span></p>
                         </div>
                             
+                        <div class="flex flex-col items-center text-white">
+                            <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">FLEX</p>
+                            <img src="${rankImagesFlex}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
+                            <p class="font-bold mt-1 text-sm md:text-base">${pdlFlex} <span class="text-[10px] font-normal">PDL</span></p>
+                        </div>
+
                     </div>
-                `;
+                        
+                </div>
+            `;
         } catch (erro) {
             container.innerHTML = '<p class="text-red-500 text-center font-bold">Erro ao carregar os Ranks.</p>';
             console.error(erro);
