@@ -12,6 +12,8 @@ const infoPlayers = [
 
 ]
 
+const delay = (ms) => new Promise(res => setTimeout(res, ms));
+
 let friendCheked = [];
 
 function colorScore(points){
@@ -33,13 +35,19 @@ function colorScore(points){
 async function carregarRank() {
     const container = document.getElementById('container-cards');
 
-    // container.innerHTML = '<p class="text-white text-center animate-pulse">Buscando dados na Riot...</p>';
+    container.innerHTML = '<p class="text-white text-center animate-pulse">Carregando...</p>';
     // const playersReady = [];
     
     for(t = 0; t < infoPlayers.length; t++){
         try {
             const resposta = await fetch(infoPlayers[t]);
             const dadosCompletos = await resposta.json();
+            const responseAPI = await fetch(infoPlayers[t]);
+
+            if(!responseAPI.ok){
+                console.log(`[ERRO] Possivel erro em ${infoPlayers[t]}, lendo proximos players do array}`);
+                continue;
+            }
 
             const id = dadosCompletos.iconeId;
             const urlImage = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/profileicon/" + id + ".png";
@@ -157,6 +165,7 @@ async function carregarRank() {
             
         `;
     });
+    await delay(600);
 }
 
 carregarRank();
