@@ -6,6 +6,9 @@ const infoPlayers = [
     "https://gragos-api.vercel.app/api/rank?nick=melt&tag=3123",
     "https://gragos-api.vercel.app/api/rank?nick=RANDOM%20MONKEY&tag=idis",
     "https://gragos-api.vercel.app/api/rank?nick=244&tag=twicy",
+    "https://gragos-api.vercel.app/api/rank?nick=Tezãolin&tag=5211",
+    "https://gragos-api.vercel.app/api/rank?nick=Vinis%20The%20Reaper&tag=C4o",
+
 ]
 
 
