@@ -33,22 +33,26 @@ function colorScore(points){
 // const apiURL = "https://gragos-api.vercel.app/api/rank?nick=Linguiça%20Games&tag=br12";
 
 async function carregarRank() {
+
     const container = document.getElementById('container-cards');
 
     // const playersReady = [];
     
     for(t = 0; t < infoPlayers.length; t++){
         try {
-            container.innerHTML = '<p class="text-white text-center animate-pulse">Carregando...</p>';
-            
             const resposta = await fetch(infoPlayers[t]);
             const dadosCompletos = await resposta.json();
             const responseAPI = await fetch(infoPlayers[t]);
+            
+            container.innerHTML = '<p class="text-white text-center animate-pulse"></p>';
 
             if(!responseAPI.ok){
+                container.innerHTML = '<p class="text-red-500 text-center font-bold">Erro com a API</p>';
                 console.log(`[ERRO] Possivel erro em ${infoPlayers[t]}, lendo proximos players do array}`);
                 continue;
             }
+
+            container.innerHTML = "";
 
             const id = dadosCompletos.iconeId;
             const urlImage = "https://ddragon.leagueoflegends.com/cdn/15.5.1/img/profileicon/" + id + ".png";
@@ -97,10 +101,11 @@ async function carregarRank() {
             };
 
             // let calcScore = ((pointsElos[rankName] || 0) + (pointsElos[rankNameFlex] || 0) + pdl)
-            let calcScore = (pointsElos[rankName] || 0) + pdl;
+            let calcScore = ((pointsElos[rankName] || 0) + (pointsElos[rankNameFlex] || 0)) + pdl + pdlFlex;
 
             let friendCheckList = {
                 name: username,
+                topRank: 0,
                 // Solo/Duo
                 rank: rankName,
                 rankdiv: rank,
@@ -118,8 +123,9 @@ async function carregarRank() {
             };
             
             friendCheked.push(friendCheckList);
-            
 
+            // Loading IMG
+            // container.innerHTML = '<img src="assets/363c2ec45f7668e82807a0c053d1e1d0.gif" class="text-white w-12 h-12 text-center animate-pulse">';
         } catch (erro) {
             container.innerHTML = '<p class="text-red-500 text-center font-bold">Erro ao carregar os Ranks.</p>';
             console.error(erro);
@@ -129,7 +135,11 @@ async function carregarRank() {
     friendCheked.sort((playerA, playerB) => {
         return playerB.score - playerA.score;
     })
+
+    var temp = 0;
+
     friendCheked.forEach((friend) => {
+        temp += 1;
         container.innerHTML += `
                 <div class="backdrop-blur-md p-4 md:p-6 border-2 border-[#8FE3EC] w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
                     
@@ -137,7 +147,7 @@ async function carregarRank() {
                         <img src="${friend.icon}" alt="Logo do Jogador" class="w-20 h-20 md:w-24 md:h-24 object-cover border border-[#8FE3EC]/30">
                         
                         <div class="flex flex-col justify-center">
-                            <p class="text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">${friend.name}</p>
+                            <p class="text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">#${temp} ${friend.name}</p>
                             
                             <div class="mt-2 text-xs flex flex-col gap-1 items-center md:items-start">
                                 <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Solo/Duo: ${friend.rank} ${friend.rankdiv}</p>
@@ -166,6 +176,7 @@ async function carregarRank() {
             
         `;
     });
+    container.innerHTML = "";
     await delay(600);
 }
 
