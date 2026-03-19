@@ -44,7 +44,7 @@ async function carregarRank() {
             const dadosCompletos = await resposta.json();
             const responseAPI = await fetch(infoPlayers[t]);
             
-            container.innerHTML = '<p class="text-white text-center animate-pulse"></p>';
+            container.innerHTML = '<p class="text-white text-center animate-pulse">Carregando...</p>';
 
             if(!responseAPI.ok){
                 container.innerHTML = '<p class="text-red-500 text-center font-bold">Erro com a API</p>';
@@ -176,7 +176,6 @@ async function carregarRank() {
             
         `;
     });
-    container.innerHTML = "";
     await delay(600);
 }
 
