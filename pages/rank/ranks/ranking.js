@@ -25,7 +25,7 @@ function colorScore(points){
         return `bg-[#f07056]/65`;
     }else if(pointsConvert <= 5000){
         return `bg-[#56f07f]/65`
-    }else if(points <= 10000)
+    }else if(pointsConvert <= 10000)
         return `bg-[#9b59b6]/65`
     else{
         return `bg-[#ff007f]/65`;
