@@ -101,7 +101,7 @@ async function carregarRank() {
             };
 
             // let calcScore = ((pointsElos[rankName] || 0) + (pointsElos[rankNameFlex] || 0) + pdl)
-            let calcScore = ((pointsElos[rankName] || 0) + (pointsElos[rankNameFlex] || 0)) + pdl + pdlFlex;
+            let calcScore = (((pointsElos[rankName] || 0) * 1.5) + (pointsElos[rankNameFlex] || 0)) + pdl + pdlFlex;
 
             let friendCheckList = {
                 name: username,
