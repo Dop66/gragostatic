@@ -20,15 +20,15 @@ function colorScore(points){
     const pointsConvert = parseInt(points);
 
     if(pointsConvert === 0){
-        return `bg-[#5c5c5c]/65`;
+        return `#5c5c5c`;
     }else if(pointsConvert <= 1000){
-        return `bg-[#f07056]/65`;
+        return `#f07056`;
     }else if(pointsConvert <= 5000){
-        return `bg-[#56f07f]/65`
+        return `#56f07f`
     }else if(pointsConvert <= 10000)
-        return `bg-[#9b59b6]/65`
+        return `#9b59b6`
     else{
-        return `bg-[#ff007f]/65`;
+        return `#ff007f`;
     }
 }
 
@@ -143,7 +143,7 @@ async function carregarRank() {
     friendCheked.forEach((friend) => {
         temp += 1;
         container.innerHTML += `
-                <div class="backdrop-blur-md p-4 md:p-6 border-2 ${colorScore(friend.score)} w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+                <div class="backdrop-blur-md p-4 md:p-6 border-2 bg-[${colorScore(friend.score)}]/80 w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
                     
                     <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
                         <img src="${friend.icon}" alt="Logo do Jogador" class="w-20 h-20 md:w-24 md:h-24 object-cover border border-[#8FE3EC]/30">
@@ -154,7 +154,7 @@ async function carregarRank() {
                             <div class="mt-2 text-xs flex flex-col gap-1 items-center md:items-start">
                                 <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Solo/Duo: ${friend.rank} ${friend.rankdiv}</p>
                                 <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Flex: ${friend.rankdivFlex} ${friend.rankFlex}</p>
-                                <p class="px-2 py-1 ${colorScore(friend.score)} font-bold backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Score: <span class="text-[#f1f5f9]">${friend.score}</span></p>
+                                <p class="px-2 py-1 bg-[${colorScore(friend.score)}]/65 font-bold backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Score: <span class="text-[#f1f5f9]">${friend.score}</span></p>
                             </div>
                         </div>
                     </div>
