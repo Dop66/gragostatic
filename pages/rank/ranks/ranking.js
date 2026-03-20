@@ -22,7 +22,7 @@ function colorScore(points){
     if(pointsConvert === 0){
         return `#5c5c5c`;
     }else if(pointsConvert <= 2000){
-        return `#f07056`;
+        return `#ff6b00`;
     }else if(pointsConvert <= 5000){
         return `#56f07f`
     }else if(pointsConvert <= 10000)
