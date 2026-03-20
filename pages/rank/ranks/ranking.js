@@ -143,7 +143,7 @@ async function carregarRank() {
     friendCheked.forEach((friend) => {
         temp += 1;
         container.innerHTML += `
-                <div class="backdrop-blur-md p-4 md:p-6 border-2 border-[#8FE3EC] w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+                <div class="backdrop-blur-md p-4 md:p-6 border-2 ${colorScore(friend.score)} w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
                     
                     <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
                         <img src="${friend.icon}" alt="Logo do Jogador" class="w-20 h-20 md:w-24 md:h-24 object-cover border border-[#8FE3EC]/30">
