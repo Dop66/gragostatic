@@ -23,7 +23,9 @@ function colorScore(points){
     }else if(pointsConvert <= 2000){
         return `#fab375`;
     }else if(pointsConvert <= 5000){
-        return `#56f07f`
+        return `#56f07f`;
+    }else if(pointsConvert <= 7000){
+        return `#9e7fe3`;
     }else if(pointsConvert <= 10000)
         return `#9b59b6`
     else{
