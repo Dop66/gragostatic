@@ -173,14 +173,14 @@ async function carregarRank() {
                         <div class="flex flex-col items-center text-white">
                             <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">SOLO/DUO</p>
                             <img src="${friend.rankIcons}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
-                            <p class="text-[10px] font-normal">${friend.rank} ${friend.rankdiv}</p>
+                            <p class="text-[15px] mt-2 font-bold">${friend.rank} ${friend.rankdiv}</p>
                             <p class="font-bold mt-1 text-sm md:text-base">${friend.pdl} <span class="text-[10px] font-normal">PDL</span></p>
                         </div>
                             
                         <div class="flex flex-col items-center text-white">
                             <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">FLEX</p>
                             <img src="${friend.iconsFlex}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
-                            <p class="text-[10px] font-normal">${friend.rankdivFlex} ${friend.rankFlex}</p>
+                            <p class="text-[15px] mt-2 font-normal">${friend.rankdivFlex} ${friend.rankFlex}</p>
                             <p class="font-bold mt-1 text-sm md:text-base">${friend.pdlFlex} <span class="text-[10px] font-normal">PDL</span></p>
                         </div>
 
