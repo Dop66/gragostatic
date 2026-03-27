@@ -4,8 +4,12 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const maxJPG = 7
+
 const bgOut = document.getElementById('bg-output')
-const number = getRandomIntInclusive(1, 7);
+
+const number = getRandomIntInclusive(1, maxJPG);
+
 
 bgOut.innerHTML = `
     <img src="assets/BackgroundList/${number}.jpg" class="w-full h-full object-cover opacity-10" alt="">

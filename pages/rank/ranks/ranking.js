@@ -116,7 +116,7 @@ async function carregarRank() {
                 "IV": 800,
             }
 
-            let calcScore = parseInt(((pointsElos[rankName] || 0) + (division[rank] || 0) + pdl) + ((pointsElos[rankNameFlex] || 0) / 1.5));
+            let calcScore = parseInt(((pointsElos[rankName] || 0) + (division[rank] || 0) + pdl) + ((pointsElos[rankNameFlex] || 0) / 10));
             // let calcScore = ((pointsElos[rankName] || 0) + (pointsElos[rankNameFlex] || 0) + pdl)
             
             let friendCheckList = {
