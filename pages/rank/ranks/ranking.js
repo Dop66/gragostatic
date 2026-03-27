@@ -110,10 +110,10 @@ async function carregarRank() {
             };
 
             const division = {
-                "I": 500,
-                "II": 600,
-                "III": 700,
-                "IV": 800,
+                "I": 800,
+                "II": 700,
+                "III": 600,
+                "IV": 500,
             }
 
             let calcScore = parseInt(((pointsElos[rankName] || 0) + (division[rank] || 0) + pdl) + ((pointsElos[rankNameFlex] || 0) / 10));
@@ -164,9 +164,7 @@ async function carregarRank() {
                             <p class="text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">#${temp} ${friend.name}</p>
                             
                             <div class="mt-2 text-xs flex flex-col gap-1 items-center md:items-start">
-                                <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Solo/Duo: ${friend.rank} ${friend.rankdiv}</p>
-                                <p class="px-2 py-1 bg-[#00C5CD]/10 backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Flex: ${friend.rankdivFlex} ${friend.rankFlex}</p>
-                                <p class="px-2 py-1 bg-[${colorScore(friend.score)}]/65 font-bold backdrop-blur-md border border-[#00C5CD]/20 rounded w-fit">Score: <span class="text-[#f1f5f9]">${friend.score}</span></p>
+                                <p class="px-2 py-1 bg-[${colorScore(friend.score)}]/65 font-bold backdrop-blur-md rounded w-fit">Score: <span class="text-[#f1f5f9]">${friend.score}</span></p>
                             </div>
                         </div>
                     </div>
@@ -175,12 +173,14 @@ async function carregarRank() {
                         <div class="flex flex-col items-center text-white">
                             <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">SOLO/DUO</p>
                             <img src="${friend.rankIcons}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
+                            <p class="text-[10px] font-normal">${friend.rank} ${friend.rankdiv}</p>
                             <p class="font-bold mt-1 text-sm md:text-base">${friend.pdl} <span class="text-[10px] font-normal">PDL</span></p>
                         </div>
                             
                         <div class="flex flex-col items-center text-white">
                             <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">FLEX</p>
                             <img src="${friend.iconsFlex}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
+                            <p class="text-[10px] font-normal">${friend.rankdivFlex} ${friend.rankFlex}</p>
                             <p class="font-bold mt-1 text-sm md:text-base">${friend.pdlFlex} <span class="text-[10px] font-normal">PDL</span></p>
                         </div>
 
