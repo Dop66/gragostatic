@@ -27,7 +27,7 @@ document.getElementById("btnArea").addEventListener("click", () => {
     outputForUser.innerHTML = "";
     for(t = 0; t < times.length; t++){
         if(times[t].length === 2){
-            outputForUser.innerHTML += `<div class="bg-[#ffe9bd] p-4 rounded-lg  border-blue-500 shadow-md animate-fade-in mb-3">
+            outputForUser.innerHTML += `<div class="bg-[#ffe9bd]/80 p-4 rounded-[5px]  border-blue-500 shadow-md animate-fade-in mb-3">
                 <p class="font-bold text-[#BD7E00]">TIME ${t+1}</p>
                 <p class="text-lg text-[#000000]">${times[t][0]} <span class="text-[#A1803C]">&</span> ${times[t][1]}</p></div>
         `}
@@ -37,8 +37,8 @@ document.getElementById("btnArea").addEventListener("click", () => {
         // }
         else{
             outputForUser.innerHTML += `
-            <div class="bg-[#FFBEA0] p-4 rounded-lg  border-blue-500 shadow-md mb-3">
-                <p class="font-bold text-[#BD3C00]">SOBROU</p>
+            <div class="bg-[#FFBEA0]/80 p-4 rounded-[5px]  border-blue-500 shadow-md mb-3">
+                <p class="font-bold text-[#e04a4a]">SOBROU</p>
                 <p class="text-lg text-[#000000]">${times[t]}</p>
             </div>`
         }
