@@ -9,12 +9,10 @@
     </head>
     <body class="bg-[#0d0d0d] text-white min-h-screen flex flex-col pt-24">
         
-        <div class="fixed inset-0 -z-10 overflow-hidden">
-            <img src="../../assets/image.jpg" class="w-full h-full object-cover opacity-10" alt="">
-            <div class="absolute inset-0 bg-black/60"></div>
+        <div id="bg-outputrank" class="fixed inset-0 -z-10 overflow-hidden">
         </div>
 
-        <header class="w-full py-4 px-8 bg-[#000000]/80 backdrop-blur-md border-b border-[#f5b642] fixed top-0 z-50 flex justify-between items-center">
+        <header class="w-full py-4 px-8 bg-[#000000]/10 backdrop-blur-md fixed top-0 z-50 flex justify-between items-center">
             <div class="flex items-center m-auto gap-2">
                 <img src="assets/logo.png" alt="Logo GragoStatic" class="w-12 h-12 object-cover rounded-full border-2 border-[#BD7E00]">
                 <h1 class="text-xl font-bold tracking-tighter uppercase italic text-[#BD7E00]"><a href="../../index.html">GragoStatic</a></h1>
@@ -28,14 +26,14 @@
 
         <div class="flex flex-col gap-8 w-full max-w-3xl items-center flex-grow mx-auto mt-10 px-4">
             <div class="w-full flex flex-col items-center gap-4">
-                <textarea id="inputArea" class="bg-[#ffe9bd] border-2 border-[#d1ae69] text-black p-4 rounded-xl w-full max-w-lg h-40 focus:outline-none focus:border-[#FFD700] focus:ring-2 focus:ring-[#ffc145] transition-all placeholder-slate-500 shadow-inner" placeholder="Digite os nomes separados por vírgula..."></textarea>
+                <textarea id="inputArea" class="bg-[#000000]/10 backdrop-blur-md border-1 border-[#d1ae69] text-[#FFD700] p-4 rounded-xl w-full max-w-lg h-40 focus:outline-none focus:border-[#FFD700] focus:ring-1 focus:ring-[#ffc145] transition-all placeholder-slate-500 shadow-inner" placeholder="Digite os nomes separados por vírgula..."></textarea>
                 <button id="btnArea" class="bg-[#d1ae69] hover:bg-[#f5b642] text-white font-bold py-3 px-12 rounded-lg text-lg transition-all w-full max-w-sm">Sortear</button>
             </div>
             <div id="result" class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 pb-10">
             </div>
         </div>
 
-        <footer class="w-full py-6 mt-12 bg-[#000000]/80 backdrop-blur-md border-t border-[#f5b642] flex flex-col items-center justify-center gap-2">
+        <footer class="w-full py-6 mt-12 bg-[#000000]/10 backdrop-blur-md border-t border-[#f5b642] flex flex-col items-center justify-center gap-2">
             <p class="text-slate-400 text-sm">
                 &copy; 2026 <span class="text-[#F3AE25] font-bold italic">GRAGOSTATIC</span>. Todos os direitos reservados.
             </p>
@@ -47,6 +45,7 @@
             https://github.com/Dop66
         </a>
         </footer>
+        <script src="js/background_ranks.js"></script>
         <script src="js/drawer.js"></script>
         <script src="js/randomizer.js"></script>
     </body>
