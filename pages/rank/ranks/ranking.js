@@ -156,37 +156,47 @@ async function carregarRank() {
         temp += 1;
         loading.innerHTML = "";
         container.innerHTML += `
-                <div class="player-card backdrop-blur-md p-4 md:p-6 border-2 border-[${colorScore(friend.score)}] w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-                    <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-                        <img src="${friend.icon}" alt="Logo do Jogador" class="w-20 h-20 md:w-24 md:h-24 object-cover border border-[#8FE3EC]/30">
-                        
-                        <div class="flex flex-col justify-center">
-                            <p class="player-name text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">#${temp} ${friend.name}</p>
-                            
-                            <div class="mt-2 text-xs flex flex-col gap-1 items-center md:items-start">
-                                <p class="px-2 py-1 bg-[${colorScore(friend.score)}]/65 font-bold backdrop-blur-md rounded w-fit">Score: <span class="text-[#f1f5f9]">${friend.score}</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-row items-center justify-around md:justify-end gap-6 md:gap-8 w-full md:w-auto border-t border-[#8FE3EC]/20 pt-4 md:pt-0 md:border-t-0">
-                            
-                        <div class="flex flex-col items-center text-white">
-                            <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">SOLO/DUO</p>
-                            <img src="${friend.rankIcons}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
-                            <p class="text-[15px] mt-2 font-bold md:text-base">${friend.rank} ${friend.rankdiv}</p>
-                            <p class="font-bold mt-1 text-sm md:text-base">${friend.pdl} <span class="text-[10px] font-normal">PDL</span></p>
-                        </div>
-                            
-                        <div class="flex flex-col items-center text-white">
-                            <p class="text-[10px] md:text-xs font-semibold mb-1 opacity-70 uppercase tracking-widest">FLEX</p>
-                            <img src="${friend.iconsFlex}" alt="rank" class="w-[60px] md:w-[80px] drop-shadow-[0_0_8px_rgba(143,227,236,0.3)]">
-                            <p class="text-[10px] mt-2 font-normal md:text-base">${friend.rankdivFlex} ${friend.rankFlex}</p>
-                            <p class="font-bold mt-1 text-sm md:text-base">${friend.pdlFlex} <span class="text-[10px] font-normal">PDL</span></p>
-                        </div>
+        <div class="player-card relative flex flex-col md:flex-row items-center gap-4 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 overflow-hidden transition-all duration-200 hover:border-white/20 w-full">
+            
+            <div class="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-2xl" style="background: ${colorScore(friend.score)}"></div>
 
-                    </div>
-                        
-                </div>
+            <span class="hidden md:block text-[11px] font-bold tracking-widest w-6 text-right shrink-0" style="color: ${colorScore(friend.score)}">#${temp}</span>
+
+            <img 
+            src="${friend.icon}" 
+            alt="Logo do Jogador" 
+            class="w-12 h-12 md:w-11 md:h-11 rounded-[10px] border border-white/10 object-cover shrink-0"
+            >
+
+            <div class="flex-1 min-w-0 text-center md:text-left">
+            <p class="player-name text-sm font-bold text-white leading-none mb-1 truncate">
+                <span class="md:hidden" style="color: ${colorScore(friend.score)}">#${temp} </span>${friend.name}
+            </p>
+            <span class="inline-block text-[10px] font-medium text-white/40 bg-white/5 border border-white/10 rounded-full px-2 py-[2px]">
+                Score: ${friend.score}
+            </span>
+            </div>
+
+            <div class="flex flex-row items-center justify-around md:justify-end gap-6 w-full md:w-auto border-t border-white/10 pt-4 md:pt-0 md:border-t-0">
+
+            <div class="flex flex-col items-center text-white">
+                <p class="text-[9px] font-medium tracking-widest text-white/30 uppercase mb-1">Solo/Duo</p>
+                <img src="${friend.rankIcons}" alt="rank" class="w-14 md:w-16 drop-shadow-[0_0_8px_rgba(143,227,236,0.25)]">
+                <p class="text-xs font-bold mt-1">${friend.rank} ${friend.rankdiv}</p>
+                <p class="text-[10px] text-white/40 mt-[2px]">${friend.pdl} <span class="font-normal">PDL</span></p>
+            </div>
+
+            <div class="w-px h-8 bg-white/10 shrink-0 hidden md:block"></div>
+
+            <div class="flex flex-col items-center text-white">
+                <p class="text-[9px] font-medium tracking-widest text-white/30 uppercase mb-1">Flex</p>
+                <img src="${friend.iconsFlex}" alt="rank" class="w-14 md:w-16 drop-shadow-[0_0_8px_rgba(143,227,236,0.25)]">
+                <p class="text-xs font-bold mt-1">${friend.rankdivFlex} ${friend.rankFlex}</p>
+                <p class="text-[10px] text-white/40 mt-[2px]">${friend.pdlFlex} <span class="font-normal">PDL</span></p>
+            </div>
+
+            </div>
+        </div>
         `;
     });
     await delay(600);
