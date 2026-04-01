@@ -156,12 +156,12 @@ async function carregarRank() {
         temp += 1;
         loading.innerHTML = "";
         container.innerHTML += `
-                <div class="backdrop-blur-md p-4 md:p-6 border-2 border-[${colorScore(friend.score)}] w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+                <div class="player-card backdrop-blur-md p-4 md:p-6 border-2 border-[${colorScore(friend.score)}] w-full flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
                     <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
                         <img src="${friend.icon}" alt="Logo do Jogador" class="w-20 h-20 md:w-24 md:h-24 object-cover border border-[#8FE3EC]/30">
                         
                         <div class="flex flex-col justify-center">
-                            <p class="text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">#${temp} ${friend.name}</p>
+                            <p class="player-name text-lg md:text-xl text-[#98E8EE] font-bold leading-tight mb-2 md:mb-0">#${temp} ${friend.name}</p>
                             
                             <div class="mt-2 text-xs flex flex-col gap-1 items-center md:items-start">
                                 <p class="px-2 py-1 bg-[${colorScore(friend.score)}]/65 font-bold backdrop-blur-md rounded w-fit">Score: <span class="text-[#f1f5f9]">${friend.score}</span></p>
@@ -191,5 +191,7 @@ async function carregarRank() {
     });
     await delay(600);
 }
+
+
 
 carregarRank();

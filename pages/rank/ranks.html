@@ -23,6 +23,19 @@
                 <div class="text-center text-3xl md:text-4xl text-white mt-8 md:mt-12">
                     <h2>Rank Gragofobicos</h2>
                 </div>
+                <div class="flex items-center gap-2 mb-6 px-1">
+                    <div class="relative flex-1 max-w-xs">
+                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+                        </svg>
+                        <input
+                            type="text"
+                            id="searchPlayer"
+                            placeholder="Buscar jogador..."
+                            class="w-full pl-9 pr-4 py-2 text-sm bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-white/25 focus:bg-white/8 transition-all duration-200"
+                        />
+                    </div>
+                </div>
                 <div id="loading"></div>
                 <div id="container-cards" class="w-full flex flex-col gap-4"></div>
                 </div>
@@ -42,5 +55,25 @@
         </footer>
         <script src="js/background_ranks.js"></script>
         <script src="ranks/ranking.js"></script>
+        <script>
+        const searchInput = document.getElementById('searchPlayer');
+        searchInput.addEventListener('input', function(e) {
+            const termoBusca = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.player-card');
+            cards.forEach(card => {
+                // Tenta achar o elemento do nome
+                const elementoNome = card.querySelector('.player-name');
+                if (elementoNome) {
+                    const nome = elementoNome.textContent.toLowerCase();
+
+                    if (nome.includes(termoBusca)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+        </script>
     </body>
 </html>
